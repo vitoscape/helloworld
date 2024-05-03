@@ -5,6 +5,11 @@
 Сравните время выполнения обоих решений для больших массивов (например, 100000000 элементов).
  */
 
+/*
+ВЫВОД:
+бинарный поиск работает быстрее, что в начале массива, что в середине, что в конце.
+ */
+
 package Task_03_0;
 
 public class Main {
@@ -37,10 +42,12 @@ public class Main {
 	}
 
 	public static void main(String args[]) {
-		final int SIZE = 20;			// Размер массива
-		final int SHIFT = 100;			// Смещение
+		final int SIZE = 100000000;		// Размер массива
+		final int SHIFT = 0;			// Смещение
 		int array[] = new int[SIZE];	// Массив
-		int desiredNumber = 852;		// Искомое число
+		//int desiredNumber = 67324532;	// Искомое число
+		//int desiredNumber = 34;		// Искомое число
+		int desiredNumber = 90000000;	// Искомое число
 
 		// Заполнение массива
 		for (int i = 0; i < SIZE; i++) {
@@ -48,14 +55,17 @@ public class Main {
 		}
 
 		// Вывод массива
-		for (int i = 0; i < SIZE; i++) {
-			System.out.printf("%d\t", array[i]);
-		}
-		System.out.printf("\n");
+//		for (int i = 0; i < SIZE; i++) {
+//			System.out.printf("%d\t", array[i]);
+//		}
+//		System.out.printf("\n");
 
 
 		///////////// Метод перебора
+		long time = System.nanoTime();							// Засекаем время
 		int result = enumerationSearch(array, desiredNumber);
+		System.out.printf("[%10d ns]\t", System.nanoTime() - time);	// Вывод времени работы алгоритма
+
 		if (result != -1) {
 			System.out.printf("Desired number at %d index (enumeration search)\n", result);    // Вывод индекса искомого числа
 		} else System.out.printf("Array does not contain a number %d\n", desiredNumber);
@@ -63,11 +73,12 @@ public class Main {
 
 
 		///////////// Метод двоичного поиска
+		time = System.nanoTime();							// Засекаем время
 		result = binarySearch(array, desiredNumber);
+		System.out.printf("[%10d ns]\t", System.nanoTime() - time);	// Вывод времени работы алгоритма
+
 		if (result != -1) {
 			System.out.printf("Desired number at %d index (binary search)\n", result);    // Вывод индекса искомого числа
 		} else System.out.printf("Array does not contain a number %d\n", desiredNumber);
-
-		// TODO: Сделать замер времени работы алгоритмов
 	}
 }
