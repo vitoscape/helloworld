@@ -10,5 +10,13 @@ public class BinTreeNode<Object> {
 		this.value = value;
 	}
 
+	public Object getValue(Object key) {
+		BinTreeNode<Object> x;
+
+		while (x != null) {
+
+		}
+	}
+
 	// TODO: Реализовать поиск
 }
