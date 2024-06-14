@@ -1,3 +1,8 @@
+/*
+Realization from https://javarush.com/groups/posts/3111-strukturih-dannihkh-dvoichnoe-derevo-v-java
+but with generic.
+ */
+
 package Task_03_2;
 
 public class BinTree<T extends Comparable<T>> {
@@ -7,7 +12,8 @@ public class BinTree<T extends Comparable<T>> {
 		rootNode = null;
 	}
 
-	public BinTreeNode<T> findNode(T value) {					// Find node by value
+	public BinTreeNode<T> findNode(T value) {	// Find node by value
+
 		BinTreeNode<T> currentNode = rootNode;					// Start search with root node
 		while (currentNode.getValue() != value) {				// Search while element not found or all elements are not discovered
 			if (value.compareTo(currentNode.getValue()) < 0) {	// Move to left child if value is less than current node
@@ -56,6 +62,51 @@ public class BinTree<T extends Comparable<T>> {
 					}
 				}
 			}
+		}
+	}
+
+	public boolean deleteNode(T value) {	// Delete node by value
+
+		BinTreeNode<T> currentNode = rootNode;
+		BinTreeNode<T> parentNode = rootNode;
+		boolean isLeftChild = true;
+
+		// Search the value
+		while (currentNode.getValue() != value) {				// Condition of finding node with value
+			parentNode = currentNode;
+
+			if (value.compareTo(currentNode.getValue()) < 0) {	// Is moving to the left is needed
+				isLeftChild = true;
+				currentNode = currentNode.getLeftChild();
+			} else {											// Or moving to the right
+				isLeftChild = false;
+				currentNode = currentNode.getRightChild();
+			}
+
+			if (currentNode == null) return false;				// The node with value was not found
+		}
+
+		// Delete found node
+		if (currentNode.getLeftChild() == null && currentNode.getRightChild() == null) {	// Node has no children. Just delete this node
+
+			if (currentNode == rootNode) rootNode = null;			// If this node is root node then the tree is clearing
+			else if (isLeftChild) parentNode.setLeftChild(null);	// If not then node disconnects from parent
+			else parentNode.setRightChild(null);
+
+		} else if (currentNode.getRightChild() == null) {									// Node is replaced by left sub-tree if no right child
+
+			if (currentNode == rootNode) rootNode = currentNode.getLeftChild();
+			else if (isLeftChild) parentNode.setLeftChild(currentNode.getLeftChild());
+			else parentNode.setRightChild(currentNode.getLeftChild());
+
+		} else if (currentNode.getLeftChild() == null) {                                    // Node is replaced by right sub-tree if no left child
+
+			if (currentNode == rootNode) rootNode = currentNode.getRightChild();
+			else if (isLeftChild) parentNode.setLeftChild(currentNode.getRightChild());
+			else parentNode.setRightChild(currentNode.getRightChild());
+
+		} else {																			// If node has both children then the node is replaced by heir
+			// TODO: Continue with heir
 		}
 	}
 }

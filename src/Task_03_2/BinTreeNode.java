@@ -1,3 +1,8 @@
+/*
+Realization from https://javarush.com/groups/posts/3111-strukturih-dannihkh-dvoichnoe-derevo-v-java
+but with generic.
+ */
+
 package Task_03_2;
 
 public class BinTreeNode<T extends Comparable<T>> implements Comparable<BinTreeNode<T>> {
