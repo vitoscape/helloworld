@@ -5,10 +5,6 @@ public class BinTreeNode<T extends Comparable<T>> implements Comparable<BinTreeN
 	private BinTreeNode<T> leftChild;
 	private BinTreeNode<T> rightChild;
 
-	BinTreeNode(T value) {
-		this.value = value;
-	}
-
 	public void printNode() {
 		System.out.printf("Value of this node: %s", value.toString());
 	}
