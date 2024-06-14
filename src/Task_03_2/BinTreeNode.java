@@ -1,22 +1,48 @@
 package Task_03_2;
 
-public class BinTreeNode<Object> {
-	public Object value;
-	public Object key;
-	BinTreeNode<Object> left, right;
+public class BinTreeNode<T> {
+	private T value;
+	private BinTreeNode<T> leftChild;
+	private BinTreeNode<T> rightChild;
 
-	BinTreeNode(Object key, Object value) {
-		this.key = key;
+	BinTreeNode(T value) {
 		this.value = value;
 	}
 
-	public Object getValue(Object key) {
-		BinTreeNode<Object> x;
-
-		while (x != null) {
-
-		}
+	public void printNode() {
+		System.out.printf("Value of this node: %s", value.toString());
 	}
 
-	// TODO: Реализовать поиск
+	public T getValue() {
+		return this.value;
+	}
+
+	public void setValue(final T value) {
+		this.value = value;
+	}
+
+	public BinTreeNode<T> getLeftChild() {
+		return this.leftChild;
+	}
+
+	public void setLeftChild(final BinTreeNode<T> leftChild) {
+		this.leftChild = leftChild;
+	}
+
+	public BinTreeNode<T> getRightChild() {
+		return this.rightChild;
+	}
+
+	public void setRightChild(final BinTreeNode<T> rightChild) {
+		this.rightChild = rightChild;
+	}
+
+	@Override
+	public String toString() {
+		return "Node{ " +
+				"value = " + value +
+				", leftChild = " + leftChild +
+				", rightChild = " + rightChild +
+				'}';
+	}
 }
