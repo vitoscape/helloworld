@@ -13,9 +13,9 @@ public class Main {
 //		System.out.println(node1.compareTo(node2));
 
 		// String test
-		BinTreeNode<String> node1 = new BinTreeNode<>("9");
-		BinTreeNode<String> node2 = new BinTreeNode<>("!");
-		System.out.println(node1.compareTo(node2));
-		System.out.println(node1.toString() + node2.toString());
+//		BinTreeNode<String> node1 = new BinTreeNode<>("9");
+//		BinTreeNode<String> node2 = new BinTreeNode<>("!");
+//		System.out.println(node1.compareTo(node2));
+//		System.out.println(node1.toString() + node2.toString());
 	}
 }
