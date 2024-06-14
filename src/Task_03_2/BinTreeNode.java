@@ -1,6 +1,6 @@
 package Task_03_2;
 
-public class BinTreeNode<T> {
+public class BinTreeNode<T extends Comparable<T>> implements Comparable<BinTreeNode<T>> {
 	private T value;
 	private BinTreeNode<T> leftChild;
 	private BinTreeNode<T> rightChild;
@@ -44,5 +44,17 @@ public class BinTreeNode<T> {
 				", leftChild = " + leftChild +
 				", rightChild = " + rightChild +
 				'}';
+	}
+
+	/*
+	 * Return difference between this object and another object
+	 * Examples:
+	 * 1) value21.compareTo(value20) = 1
+	 * 2) value20.compareTo(value20) = 0
+	 * 3) value19.compareTo(value20) = -1
+	 */
+	@Override
+	public int compareTo(BinTreeNode<T> another) {
+		return value.compareTo(another.value);
 	}
 }
