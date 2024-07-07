@@ -11,9 +11,15 @@ public class Box extends Shape {
 		this.a = a;
 		this.b = b;
 		this.c = c;
+		freeVolume = a * b * c;
 	}
 
 	public boolean add(Shape shape) {
-		// TODO: Make add() method.
+		if (freeVolume >= shape.getVolume()) {
+			freeVolume -= shape.getVolume();
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
