@@ -1,6 +1,6 @@
 package Task_04_1;
 
-public class Shape {
+public abstract class Shape {
 	private double volume;
 
 	public Shape(double volume) {
