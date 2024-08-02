@@ -1,6 +1,6 @@
 package Task_04_3.shapes;
 
-interface Shape extends Comparable<Shape> {
+public interface Shape extends Comparable<Shape> {
 	double getVolume();
 
 	@Override

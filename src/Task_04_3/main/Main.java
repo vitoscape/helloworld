@@ -12,9 +12,21 @@ image
 
 package Task_04_3.main;
 
+import Task_04_3.shapes.SolidOfRevolutionByFunction;
+import Task_04_3.shapes.Shape;
+
+import java.util.function.Function;
+
 public class Main {
 	public static void main(String args[]) {
 
+		Shape shape = new SolidOfRevolutionByFunction(new Function<Double, Double>() {
+			@Override
+			public Double apply(Double x) {
+				return Math.cos(x);
+			}
+		}, 0, 10);
 
+		System.out.println(shape.getVolume());
 	}
 }
