@@ -1,7 +1,13 @@
 package Task_04_2;
 
-public class Ball extends SolidOfRevolution {
+class Ball extends SolidOfRevolution {
+
+	@Override
+	public double getVolume() {
+		return Math.PI * Math.pow(radius, 3) * 4 / 3;
+	}
+
 	public  Ball(double radius) {
-		super(4 * Math.PI * Math.pow(radius, 3)/ 3, radius);
+		super(radius);
 	}
 }

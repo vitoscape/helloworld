@@ -1,10 +1,9 @@
 package Task_04_2;
 
-public abstract class SolidOfRevolution extends Shape {
-	private double radius;
+abstract class SolidOfRevolution implements Shape {
+	protected double radius;
 
-	public SolidOfRevolution(double volume, double radius) {
-		super(volume);
+	public SolidOfRevolution(double radius) {
 		this.radius = radius;
 	}
 

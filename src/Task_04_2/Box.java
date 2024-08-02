@@ -1,25 +1,33 @@
 package Task_04_2;
 
-public class Box extends Shape {
-	private double a;
-	private double b;
-	private double c;
-	private double freeVolume;
+import java.util.ArrayList;
 
-	public Box(double a, double b, double c) {
-		super(a * b * c);
-		this.a = a;
-		this.b = b;
-		this.c = c;
-		freeVolume = a * b * c;
+public class Box implements Shape {
+	private ArrayList<Shape> shapes = new ArrayList<>();
+	private double available;
+	private double volume;
+
+	public Box(double available) {
+		this.available = available;
+		this.volume = available;
 	}
 
 	public boolean add(Shape shape) {
-		if (freeVolume >= shape.getVolume()) {
-			freeVolume -= shape.getVolume();
+		if (available >= shape.getVolume()) {
+			shapes.add(shape);
+			available -= shape.getVolume();
 			return true;
 		} else {
 			return false;
 		}
+	}
+
+	@Override
+	public double getVolume() {
+		return volume;
+	}
+
+	public ArrayList<Shape> getShapes() {
+		return shapes;
 	}
 }

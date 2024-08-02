@@ -1,12 +1,16 @@
 package Task_04_2;
 
-public class Pyramid extends Shape {
-	private double s;	// The base of the pyramid
-	private double h;	// The height of the pyramid
+public class Pyramid implements Shape {
+	private double height;
+	private double s;		// The base of the pyramid
 
-	public Pyramid(double s, double h) {
-		super(s * h / 3);			// Pyramid volume formula as parameter for parent class constructor
+	public Pyramid(double height, double s) {
+		this.height = height;
 		this.s = s;
-		this.h = h;
+	}
+
+	@Override
+	public double getVolume() {
+		return height * s * 4 / 3;
 	}
 }
